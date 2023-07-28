@@ -1,0 +1,6 @@
+SELECT DISTINCT j.nom, j.nationalite
+FROM joueurtennis j
+INNER JOIN rencontre r1 ON j.nujoueur = r1.nugagnant OR j.nujoueur = r1.nuperdant
+INNER JOIN rencontre r2 ON j.nujoueur = r2.nugagnant OR j.nujoueur = r2.nuperdant
+WHERE r1.annee = 1992 AND r2.annee = 1992
+AND (r1.lieutournoi LIKE 'Roland%' AND r2.lieutournoi LIKE 'Wimble%');
